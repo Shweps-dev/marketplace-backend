@@ -1,8 +1,8 @@
-# 🛒 Marketplace Backend
+#  Marketplace Backend
 
-A production-ready e-commerce backend built with **Django REST Framework**, **MySQL**, **Celery**, and **Docker**.
+An e-commerce backend built with **Django REST Framework**, **MySQL**, **Celery**, and **Docker**.
 
-## ⚡ Tech Stack
+##  Tech Stack
 
 | Layer | Technology | Why |
 |-------|-----------|-----|
@@ -14,7 +14,7 @@ A production-ready e-commerce backend built with **Django REST Framework**, **My
 | Monitoring | Flower | Real-time Celery task monitoring |
 | Container | Docker Compose | One command to run everything |
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 marketplace/
@@ -31,7 +31,7 @@ marketplace/
 └── Dockerfile
 ```
 
-## 🗄️ Database Schema (MySQL)
+##  Database Schema (MySQL)
 
 ```
 users ──────────────────────────────────────────────────┐
@@ -71,7 +71,7 @@ order_status_history (FK → orders)
   id, order_id, old_status, new_status, changed_by_id, changed_at
 ```
 
-## ⚙️ How Celery Works
+##  How Celery Works
 
 ```
 User places order
@@ -100,10 +100,10 @@ Sends confirmation email
 Stores result in django_celery_results table
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
-git clone <your-repo>
+git clone https://github.com/Shweps-dev/marketplace-backend.git
 cd marketplace
 cp .env.example .env
 docker-compose up --build
@@ -120,7 +120,7 @@ Services:
 docker-compose exec api python manage.py createsuperuser
 ```
 
-## 📡 API Endpoints
+##  API Endpoints
 
 ### Auth
 ```
@@ -159,7 +159,7 @@ GET  /api/v1/orders/{id}/          Order detail with status history
 POST /api/v1/orders/{id}/cancel/   Cancel order
 ```
 
-## 🔍 Filtering & Search
+##  Filtering & Search
 
 ```bash
 # Search by name/description
@@ -184,7 +184,7 @@ GET /api/v1/products/?ordering=-created_at
 GET /api/v1/products/?category=2&price_max=300&in_stock=true&ordering=price
 ```
 
-## 🌍 Environment Variables
+##  Environment Variables
 
 | Variable | Description |
 |----------|-------------|
@@ -196,7 +196,3 @@ GET /api/v1/products/?category=2&price_max=300&in_stock=true&ordering=price
 | `REDIS_URL` | Redis connection URL |
 | `EMAIL_HOST_USER` | Gmail address for sending emails |
 | `EMAIL_HOST_PASSWORD` | Gmail app password |
-
-## 📝 LinkedIn Resume Bullet
-
-> Designed a relational database schema in **MySQL** for an e-commerce marketplace backend (products, categories, cart, orders, order status history); built a **Celery + Redis** async task pipeline for order confirmation emails, reducing API response time by decoupling I/O-bound operations; containerized the full stack — Django, MySQL, Redis, Celery, and Flower monitoring — using **Docker Compose** for environment parity between development and production.
